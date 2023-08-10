@@ -1,5 +1,6 @@
 let clear = document.querySelector("#clear");
 let equals = document.querySelector("#equals");
+let decimal = document.querySelector("#decimal");
 
 let numbers = document.querySelectorAll(".number");
 let operators = document.querySelectorAll(".operator");
@@ -96,3 +97,10 @@ function clears() {
   lastOperation.textContent = "";
   currentOperation.textContent = "";
 }
+
+decimal.addEventListener("click", function () {
+  if (!currentNum.includes(".")) {
+    currentOperation.textContent += ".";
+    currentNum = currentOperation.textContent;
+  }
+});
