@@ -24,7 +24,12 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
-  return num1 / num2;
+  if (num2 == 0) {
+    alert("NO DIVIDING BY 0 >:( ");
+    clears();
+  } else {
+    return num1 / num2;
+  }
 }
 
 function operate(num1, num2) {
@@ -53,7 +58,7 @@ for (let i = 0; i < numbers.length; i++) {
 
 for (let i = 0; i < operators.length; i++) {
   operators[i].addEventListener("click", function () {
-    if (currentOperation != "") {
+    if (currentOperation.textContent != "") {
       if (lastOperation.textContent == "") {
         operator = this.textContent;
         lastNum = currentNum;
@@ -82,9 +87,12 @@ equals.addEventListener("click", function () {
 });
 
 clear.addEventListener("click", function () {
+  clears();
+});
+function clears() {
   lastNum = "";
   currentNum = "";
   operator = "";
   lastOperation.textContent = "";
   currentOperation.textContent = "";
-});
+}
